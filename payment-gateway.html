@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Pandey Furnitures</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .payment-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .payment-card {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .payment-card h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .payment-details {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .detail-value {
+            color: #666;
+        }
+
+        .payment-gateway-placeholder {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .payment-gateway-placeholder h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .payment-gateway-placeholder p {
+            color: #856404;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .gateway-options {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .gateway-option {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .gateway-option:last-child {
+            border-bottom: none;
+        }
+
+        .gateway-option strong {
+            color: var(--primary-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #229954;
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .info-message {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .payment-card {
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🏪 Pandey Furnitures</h1>
+            </div>
+            <div class="navbar-items">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#products" class="nav-link">Products</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Container -->
+    <section class="payment-container">
+        <div class="payment-card">
+            <h2>🔐 Secure Payment Gateway</h2>
+
+            <div class="info-message">
+                <strong>Order Confirmation:</strong> Your order is ready for payment. Please proceed with the payment process below.
+            </div>
+
+            <!-- Payment Details -->
+            <div class="payment-details">
+                <div class="detail-row">
+                    <span class="detail-label">Order ID:</span>
+                    <span class="detail-value" id="order-id">PF-XXXXXXXXX</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Customer Name:</span>
+                    <span class="detail-value" id="customer-name">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="customer-email">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Amount:</span>
+                    <span class="detail-value" id="payment-amount">₹0.00</span>
+                </div>
+            </div>
+
+            <!-- Payment Gateway Configuration Notice -->
+            <div class="payment-gateway-placeholder">
+                <h3>⚙️ Gateway Configuration Required</h3>
+                <p>This payment gateway is currently in <strong>Demo Mode</strong>. To enable real payments, you need to configure one of the following payment gateways:</p>
+
+                <div class="gateway-options">
+                    <div class="gateway-option">
+                        <strong>1. Razorpay</strong> - Most popular in India
+                    </div>
+                    <div class="gateway-option">
+                        <strong>2. PayU</strong> - Secure payment processing
+                    </div>
+                    <div class="gateway-option">
+                        <strong>3. CCAvenue</strong> - Multi-channel gateway
+                    </div>
+                    <div class="gateway-option">
+                        <strong>4. Instamojo</strong> - Simple & easy integration
+                    </div>
+                </div>
+
+                <p style="margin-top: 1rem;">
+                    📧 Contact <strong>support@pandeyfurnitures.in</strong> to configure your preferred payment gateway.
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-success" onclick="simulatePaymentSuccess()">
+                    ✓ Simulate Payment Success
+                </button>
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                    ← Back to Store
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Pandey Furnitures. All rights reserved.</p>
+            <p>Email: contact@pandeyfurnitures.in | Phone: +91-XXXXXXXXXX</p>
+        </div>
+    </footer>
+
+    <script src="payment-gateway.js"></script>
+</body>
+</html>
